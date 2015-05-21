@@ -25,10 +25,10 @@ import android.widget.ImageView;
 
 public interface IPhotoView {
 
-    public static final float DEFAULT_MAX_SCALE = 3.0f;
-    public static final float DEFAULT_MID_SCALE = 1.75f;
-    public static final float DEFAULT_MIN_SCALE = 1.0f;
-    public static final int DEFAULT_ZOOM_DURATION = 200;
+    float DEFAULT_MAX_SCALE = 3.0f;
+    float DEFAULT_MID_SCALE = 1.75f;
+    float DEFAULT_MIN_SCALE = 1.0f;
+    int DEFAULT_ZOOM_DURATION = 200;
 
     /**
      * Returns true if the PhotoView is set to allow zooming of Photos.
@@ -63,43 +63,16 @@ public interface IPhotoView {
     Matrix getDisplayMatrix();
 
     /**
-     * Use {@link #getMinimumScale()} instead, this will be removed in future release
-     *
-     * @return The current minimum scale level. What this value represents depends on the current
-     * {@link android.widget.ImageView.ScaleType}.
-     */
-    @Deprecated
-    float getMinScale();
-
-    /**
      * @return The current minimum scale level. What this value represents depends on the current
      * {@link android.widget.ImageView.ScaleType}.
      */
     float getMinimumScale();
 
     /**
-     * Use {@link #getMediumScale()} instead, this will be removed in future release
-     *
-     * @return The current middle scale level. What this value represents depends on the current
-     * {@link android.widget.ImageView.ScaleType}.
-     */
-    @Deprecated
-    float getMidScale();
-
-    /**
      * @return The current medium scale level. What this value represents depends on the current
      * {@link android.widget.ImageView.ScaleType}.
      */
     float getMediumScale();
-
-    /**
-     * Use {@link #getMaximumScale()} instead, this will be removed in future release
-     *
-     * @return The current maximum scale level. What this value represents depends on the current
-     * {@link android.widget.ImageView.ScaleType}.
-     */
-    @Deprecated
-    float getMaxScale();
 
     /**
      * @return The current maximum scale level. What this value represents depends on the current
@@ -130,18 +103,6 @@ public interface IPhotoView {
     void setAllowParentInterceptOnEdge(boolean allow);
 
     /**
-     * Use {@link #setMinimumScale(float minimumScale)} instead, this will be removed in future
-     * release
-     * <p>&nbsp;</p>
-     * Sets the minimum scale level. What this value represents depends on the current {@link
-     * android.widget.ImageView.ScaleType}.
-     *
-     * @param minScale minimum allowed scale
-     */
-    @Deprecated
-    void setMinScale(float minScale);
-
-    /**
      * Sets the minimum scale level. What this value represents depends on the current {@link
      * android.widget.ImageView.ScaleType}.
      *
@@ -149,36 +110,12 @@ public interface IPhotoView {
      */
     void setMinimumScale(float minimumScale);
 
-    /**
-     * Use {@link #setMediumScale(float mediumScale)} instead, this will be removed in future
-     * release
-     * <p>&nbsp;</p>
-     * Sets the middle scale level. What this value represents depends on the current {@link
-     * android.widget.ImageView.ScaleType}.
-     *
-     * @param midScale medium scale preset
-     */
-    @Deprecated
-    void setMidScale(float midScale);
-
     /*
      * Sets the medium scale level. What this value represents depends on the current {@link android.widget.ImageView.ScaleType}.
      *
      * @param mediumScale medium scale preset
      */
     void setMediumScale(float mediumScale);
-
-    /**
-     * Use {@link #setMaximumScale(float maximumScale)} instead, this will be removed in future
-     * release
-     * <p>&nbsp;</p>
-     * Sets the maximum scale level. What this value represents depends on the current {@link
-     * android.widget.ImageView.ScaleType}.
-     *
-     * @param maxScale maximum allowed scale preset
-     */
-    @Deprecated
-    void setMaxScale(float maxScale);
 
     /**
      * Sets the maximum scale level. What this value represents depends on the current {@link
@@ -300,15 +237,6 @@ public interface IPhotoView {
     void setZoomable(boolean zoomable);
 
     /**
-     * Enables rotation via PhotoView internal functions. Name is chosen so it won't collide with
-     * View.setRotation(float) in API since 11
-     *
-     * @param rotationDegree - Degree to rotate PhotoView to, should be in range 0 to 360
-     * @deprecated use {@link #setRotationTo(float)}
-     */
-    void setPhotoViewRotation(float rotationDegree);
-
-    /**
      * Extracts currently visible area to Bitmap object, if there is no image loaded yet or the
      * ImageView is already destroyed, returns {@code null}
      *
@@ -323,14 +251,6 @@ public interface IPhotoView {
      * @param milliseconds duration of zoom interpolation
      */
     void setZoomTransitionDuration(int milliseconds);
-
-    /**
-     * Will return instance of IPhotoView (eg. PhotoViewAttacher), can be used to provide better
-     * integration
-     *
-     * @return IPhotoView implementation instance if available, null if not
-     */
-    IPhotoView getIPhotoViewImplementation();
 
     /**
      * Sets custom double tap listener, to intercept default given functions. To reset behavior to

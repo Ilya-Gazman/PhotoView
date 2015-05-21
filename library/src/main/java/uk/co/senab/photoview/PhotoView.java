@@ -60,14 +60,6 @@ public class PhotoView extends ImageView implements IPhotoView {
         }
     }
 
-    /**
-     * @deprecated use {@link #setRotationTo(float)}
-     */
-    @Override
-    public void setPhotoViewRotation(float rotationDegree) {
-        mAttacher.setRotationTo(rotationDegree);
-    }
-
     @Override
     public void setRotationTo(float rotationDegree) {
         mAttacher.setRotationTo(rotationDegree);
@@ -99,31 +91,13 @@ public class PhotoView extends ImageView implements IPhotoView {
     }
 
     @Override
-    @Deprecated
-    public float getMinScale() {
-        return getMinimumScale();
-    }
-
-    @Override
     public float getMinimumScale() {
         return mAttacher.getMinimumScale();
     }
 
     @Override
-    @Deprecated
-    public float getMidScale() {
-        return getMediumScale();
-    }
-
-    @Override
     public float getMediumScale() {
         return mAttacher.getMediumScale();
-    }
-
-    @Override
-    @Deprecated
-    public float getMaxScale() {
-        return getMaximumScale();
     }
 
     @Override
@@ -147,31 +121,13 @@ public class PhotoView extends ImageView implements IPhotoView {
     }
 
     @Override
-    @Deprecated
-    public void setMinScale(float minScale) {
-        setMinimumScale(minScale);
-    }
-
-    @Override
     public void setMinimumScale(float minimumScale) {
         mAttacher.setMinimumScale(minimumScale);
     }
 
     @Override
-    @Deprecated
-    public void setMidScale(float midScale) {
-        setMediumScale(midScale);
-    }
-
-    @Override
     public void setMediumScale(float mediumScale) {
         mAttacher.setMediumScale(mediumScale);
-    }
-
-    @Override
-    @Deprecated
-    public void setMaxScale(float maxScale) {
-        setMaximumScale(maxScale);
     }
 
     @Override
@@ -276,11 +232,6 @@ public class PhotoView extends ImageView implements IPhotoView {
     @Override
     public void setZoomTransitionDuration(int milliseconds) {
         mAttacher.setZoomTransitionDuration(milliseconds);
-    }
-
-    @Override
-    public IPhotoView getIPhotoViewImplementation() {
-        return mAttacher;
     }
 
     @Override

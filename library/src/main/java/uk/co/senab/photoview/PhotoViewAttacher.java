@@ -275,15 +275,6 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
         return true;
     }
 
-    /**
-     * @deprecated use {@link #setRotationTo(float)}
-     */
-    @Override
-    public void setPhotoViewRotation(float degrees) {
-        mSuppMatrix.setRotate(degrees % 360);
-        checkAndDisplayMatrix();
-    }
-
     @Override
     public void setRotationTo(float degrees) {
         mSuppMatrix.setRotate(degrees % 360);
@@ -314,31 +305,13 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
     }
 
     @Override
-    @Deprecated
-    public float getMinScale() {
-        return getMinimumScale();
-    }
-
-    @Override
     public float getMinimumScale() {
         return mMinScale;
     }
 
     @Override
-    @Deprecated
-    public float getMidScale() {
-        return getMediumScale();
-    }
-
-    @Override
     public float getMediumScale() {
         return mMidScale;
-    }
-
-    @Override
-    @Deprecated
-    public float getMaxScale() {
-        return getMaximumScale();
     }
 
     @Override
@@ -530,33 +503,15 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
     }
 
     @Override
-    @Deprecated
-    public void setMinScale(float minScale) {
-        setMinimumScale(minScale);
-    }
-
-    @Override
     public void setMinimumScale(float minimumScale) {
         checkZoomLevels(minimumScale, mMidScale, mMaxScale);
         mMinScale = minimumScale;
     }
 
     @Override
-    @Deprecated
-    public void setMidScale(float midScale) {
-        setMediumScale(midScale);
-    }
-
-    @Override
     public void setMediumScale(float mediumScale) {
         checkZoomLevels(mMinScale, mediumScale, mMaxScale);
         mMidScale = mediumScale;
-    }
-
-    @Override
-    @Deprecated
-    public void setMaxScale(float maxScale) {
-        setMaximumScale(maxScale);
     }
 
     @Override
@@ -815,11 +770,6 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
         this.ZOOM_DURATION = milliseconds;
     }
 
-    @Override
-    public IPhotoView getIPhotoViewImplementation() {
-        return this;
-    }
-
     /**
      * Helper method that 'unpacks' a Matrix and returns the required value
      *
@@ -943,7 +893,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
      *
      * @author Chris Banes
      */
-    public static interface OnMatrixChangedListener {
+    public interface OnMatrixChangedListener {
         /**
          * Callback for when the Matrix displaying the Drawable has changed. This could be because
          * the View's bounds have changed, or the user has zoomed.
@@ -958,7 +908,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
      *
      * @author Marek Sebera
      */
-    public static interface OnScaleChangeListener {
+    public interface OnScaleChangeListener {
         /**
          * Callback for when the scale changes
          *
@@ -975,7 +925,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
      *
      * @author Chris Banes
      */
-    public static interface OnPhotoTapListener {
+    public interface OnPhotoTapListener {
 
         /**
          * A callback to receive where the user taps on a photo. You will only receive a callback if
@@ -996,7 +946,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
      *
      * @author Chris Banes
      */
-    public static interface OnViewTapListener {
+    public interface OnViewTapListener {
 
         /**
          * A callback to receive where the user taps on a ImageView. You will receive a callback if
